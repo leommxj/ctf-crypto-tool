@@ -51,7 +51,6 @@ QString Tools::base32decode(const QString &input){
         a[i]=base32map.indexOf(input.at(i));
     }
     QString result;
-    qDebug("fuck%d",inputByte.size());
     int j=0;
     for(int i=0;i<input.size();i++){
         j=0;
@@ -61,12 +60,11 @@ QString Tools::base32decode(const QString &input){
         inputBit.setBit(i*5+j++,a[i]&(1<<(4-j)));
         inputBit.setBit(i*5+j++,a[i]&(1<<(4-j)));
     }
-    qDebug() << "QBitArray bits :" << inputBit;
-    qDebug("shit");
-    QByteArray temp;
-    temp.resize(inputBit.size()/8);
+    QByteArray temp("");
+    temp.resize(inputBit.size()/8+1);
+    temp.fill('\x00');
     for(int i=0;i<inputBit.count();i++){
-        temp[i/8]=(temp.at(i/8)|(inputBit.testBit(i)?1:0)<<(i%8));
+        temp[i/8]=(temp.at(i/8)|(inputBit.testBit(i)?0x80:0)>>(i%8));
     }
     result = result.fromUtf8(temp);
     return result;

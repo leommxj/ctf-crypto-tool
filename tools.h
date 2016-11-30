@@ -12,6 +12,7 @@ public:
     static Tools* GetInstance();
     QString base32encode(const QString &input);
     QString base32decode(const QString &input);
+    QString base16encode(const QString &input);
 private:
     Tools();
     static Tools* p_Instance;

@@ -32,6 +32,16 @@ private slots:
 
     void on_base32Decode_triggered();
 
+    void on_hexEncode_triggered();
+
+    void on_hexDecode_triggered();
+
+    void on_copyInput_clicked();
+
+    void on_copyOutput_clicked();
+
+    void on_exchangeIO_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

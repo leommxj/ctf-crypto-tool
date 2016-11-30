@@ -52,6 +52,45 @@
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="copyInput">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>270</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>复制输入</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="copyOutput">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>270</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>复制输出</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exchangeIO">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>270</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>上下互换</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -77,7 +116,7 @@
     </property>
     <widget class="QMenu" name="menuBase16_32_64">
      <property name="title">
-      <string>Base16/32/64</string>
+      <string>Base32/64</string>
      </property>
      <addaction name="base64Encode"/>
      <addaction name="base64Decode"/>
@@ -86,7 +125,15 @@
      <addaction name="base32Decode"/>
      <addaction name="separator"/>
     </widget>
+    <widget class="QMenu" name="menuHEX_Base16">
+     <property name="title">
+      <string>HEX(Base16)</string>
+     </property>
+     <addaction name="hexEncode"/>
+     <addaction name="hexDecode"/>
+    </widget>
     <addaction name="menuBase16_32_64"/>
+    <addaction name="menuHEX_Base16"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -145,6 +192,16 @@
   <action name="base32Decode">
    <property name="text">
     <string>Base32解码</string>
+   </property>
+  </action>
+  <action name="hexEncode">
+   <property name="text">
+    <string>编码</string>
+   </property>
+  </action>
+  <action name="hexDecode">
+   <property name="text">
+    <string>解码</string>
    </property>
   </action>
  </widget>

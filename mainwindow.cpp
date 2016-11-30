@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QClipboard>
 #include <QMessageBox>
 #include "tools.h"
 
@@ -88,4 +89,37 @@ void MainWindow::on_base32Decode_triggered()
     QString input = ui->inputEdit->toPlainText();
     Tools* tools = Tools::GetInstance();
     ui->outputEdit->setText(tools->base32decode(input));
+}
+
+void MainWindow::on_hexEncode_triggered()
+{
+    QString input =ui->inputEdit->toPlainText();
+    QByteArray inputByte(input.toUtf8().toHex());
+    ui->outputEdit->setText(inputByte);
+}
+
+void MainWindow::on_hexDecode_triggered()
+{
+    QString input =ui->inputEdit->toPlainText();
+    QByteArray inputByte(QByteArray::fromHex(input.toUtf8()));
+    ui->outputEdit->setText(inputByte);
+}
+
+void MainWindow::on_copyInput_clicked()
+{
+    QClipboard* clipboard = QApplication::clipboard();
+    clipboard->setText(ui->inputEdit->toPlainText());
+}
+
+void MainWindow::on_copyOutput_clicked()
+{
+    QClipboard* clipboard = QApplication::clipboard();
+    clipboard->setText(ui->outputEdit->toPlainText());
+}
+
+void MainWindow::on_exchangeIO_clicked()
+{
+    QString temp = ui->inputEdit->toPlainText();
+    ui->inputEdit->setText(ui->outputEdit->toPlainText());
+    ui->outputEdit->setText(temp);
 }
