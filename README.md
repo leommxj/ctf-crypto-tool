@@ -10,6 +10,7 @@
 * 文字反向,大小写转换
 * Base32/64编码解码
 * HEX(Base16)编码解码
+* 栅栏密码加解密
 
 ##TODO:
 * too many things

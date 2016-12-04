@@ -42,6 +42,8 @@ private slots:
 
     void on_exchangeIO_clicked();
 
+    void on_railDecode_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

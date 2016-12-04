@@ -139,6 +139,8 @@
     <property name="title">
      <string>加密解密</string>
     </property>
+    <addaction name="railDecode"/>
+    <addaction name="separator"/>
    </widget>
    <addaction name="menuCtf_crypto_tools"/>
    <addaction name="menu"/>
@@ -202,6 +204,11 @@
   <action name="hexDecode">
    <property name="text">
     <string>解码</string>
+   </property>
+  </action>
+  <action name="railDecode">
+   <property name="text">
+    <string>栅栏</string>
    </property>
   </action>
  </widget>
