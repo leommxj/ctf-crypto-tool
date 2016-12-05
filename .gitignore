@@ -36,3 +36,4 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user
 
+release/ctf_crypto_tools.exe

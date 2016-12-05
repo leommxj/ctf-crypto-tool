@@ -181,3 +181,35 @@ void MainWindow::on_railDecode_triggered()
     ui->outputEdit->setText(result);
 
 }
+
+
+void MainWindow::on_classicalCaesarDecode_triggered()
+{
+    QString input = ui->inputEdit->toPlainText();
+    QString result;
+    for(int i=1;i<=26;i++){
+        for(QString::iterator it = input.begin();it!=input.end();it++){
+            if(it->isLower()){
+                QChar temp =QChar::fromLatin1(it->toLatin1()+i);
+                if(temp.isLower()){
+                    result.append(temp);
+                }else{
+                    result.append(QChar::fromLatin1(temp.toLatin1()-26));
+                }
+            }else if(it->isUpper()){
+                QChar temp =QChar::fromLatin1(it->toLatin1()+i);
+                if(temp.isUpper()){
+                    result.append(temp);
+                }else{
+                    result.append(QChar::fromLatin1(temp.toLatin1()-26));
+                }
+            }
+            else{
+                result.append(QChar(it->unicode()));
+                qDebug()<<it->unicode();
+            }
+        }
+        result.append("\n");
+    }
+    ui->outputEdit->setText(result);
+}

@@ -32,6 +32,9 @@
       <height>221</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;Consolas&quot;;</string>
+    </property>
     <property name="sizeAdjustPolicy">
      <enum>QAbstractScrollArea::AdjustIgnored</enum>
     </property>
@@ -47,6 +50,9 @@
       <width>971</width>
       <height>201</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;Consolas&quot;;</string>
     </property>
     <property name="acceptRichText">
      <bool>false</bool>
@@ -139,8 +145,15 @@
     <property name="title">
      <string>加密解密</string>
     </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>凯撒</string>
+     </property>
+     <addaction name="classicalCaesarDecode"/>
+    </widget>
     <addaction name="railDecode"/>
     <addaction name="separator"/>
+    <addaction name="menu_3"/>
    </widget>
    <addaction name="menuCtf_crypto_tools"/>
    <addaction name="menu"/>
@@ -209,6 +222,11 @@
   <action name="railDecode">
    <property name="text">
     <string>栅栏</string>
+   </property>
+  </action>
+  <action name="classicalCaesarDecode">
+   <property name="text">
+    <string>经典凯撒</string>
    </property>
   </action>
  </widget>

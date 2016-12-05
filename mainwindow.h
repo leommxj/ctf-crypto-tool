@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
@@ -43,6 +43,8 @@ private slots:
     void on_exchangeIO_clicked();
 
     void on_railDecode_triggered();
+
+    void on_classicalCaesarDecode_triggered();
 
 private:
     Ui::MainWindow *ui;
