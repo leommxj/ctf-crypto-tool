@@ -183,33 +183,35 @@ void MainWindow::on_railDecode_triggered()
 }
 
 
-void MainWindow::on_classicalCaesarDecode_triggered()
+void MainWindow::on_classicalCaesarDecrypt_triggered()
 {
     QString input = ui->inputEdit->toPlainText();
     QString result;
+    Tools* tools = Tools::GetInstance();
     for(int i=1;i<=26;i++){
-        for(QString::iterator it = input.begin();it!=input.end();it++){
-            if(it->isLower()){
-                QChar temp =QChar::fromLatin1(it->toLatin1()+i);
-                if(temp.isLower()){
-                    result.append(temp);
-                }else{
-                    result.append(QChar::fromLatin1(temp.toLatin1()-26));
-                }
-            }else if(it->isUpper()){
-                QChar temp =QChar::fromLatin1(it->toLatin1()+i);
-                if(temp.isUpper()){
-                    result.append(temp);
-                }else{
-                    result.append(QChar::fromLatin1(temp.toLatin1()-26));
-                }
-            }
-            else{
-                result.append(QChar(it->unicode()));
-                qDebug()<<it->unicode();
-            }
-        }
+        result.append(tools->caesarDecode(input,i));
         result.append("\n");
+    }
+    ui->outputEdit->setText(result);
+}
+
+void MainWindow::on_vigenereDecrypt_triggered()
+{
+    Tools* tools = Tools::GetInstance();
+    bool isKey;
+    QString key = QInputDialog::getText(NULL,"请输入key","仅限26个英文字母 eg.caesar",QLineEdit::Normal,"",&isKey);
+    QString result;
+    QString input = ui->inputEdit->toPlainText();
+    QString::iterator keyIt = key.begin();
+    int i,upper=QChar('A').toLatin1(),lower=QChar('a').toLatin1();
+    for(QString::iterator it = input.begin();it!=input.end();it++){
+
+        if(keyIt==key.end())keyIt=key.begin();
+        if(keyIt->isUpper())i=keyIt->toLatin1()-upper;
+        else if(keyIt->isLower())i=keyIt->toLatin1()-lower;
+        result.append(tools->caesarDecode(QString(it->unicode()),i));
+        keyIt++;
+
     }
     ui->outputEdit->setText(result);
 }

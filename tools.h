@@ -1,4 +1,4 @@
-#ifndef TOOLS_H
+﻿#ifndef TOOLS_H
 #define TOOLS_H
 
 #include <QString>
@@ -13,6 +13,7 @@ public:
     QString base32encode(const QString &input);
     QString base32decode(const QString &input);
     QString base16encode(const QString &input);
+    QString caesarDecode(const QString &fuckyou,int n);
 private:
     Tools();
     static Tools* p_Instance;

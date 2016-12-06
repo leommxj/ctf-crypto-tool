@@ -1,4 +1,4 @@
-#include "tools.h"
+﻿#include "tools.h"
 #include <QDebug>
 Tools::Tools()
 {
@@ -69,3 +69,29 @@ QString Tools::base32decode(const QString &input){
     result = result.fromUtf8(temp);
     return result;
 }
+QString Tools::caesarDecode(const QString &fuckyou, int n){
+    QString result;
+    QString input = QString(fuckyou);
+    for(QString::iterator it = input.begin();it!=input.end();it++){
+        if(it->isLower()){
+            QChar temp =QChar::fromLatin1(it->toLatin1()+n);
+            if(temp.isLower()){
+                result.append(temp);
+            }else{
+                result.append(QChar::fromLatin1(temp.toLatin1()-26));
+            }
+        }else if(it->isUpper()){
+            QChar temp =QChar::fromLatin1(it->toLatin1()+n);
+            if(temp.isUpper()){
+                result.append(temp);
+            }else{
+                result.append(QChar::fromLatin1(temp.toLatin1()-26));
+            }
+        }
+        else{
+            result.append(QChar(it->unicode()));
+        }
+    }
+    return result;
+}
+

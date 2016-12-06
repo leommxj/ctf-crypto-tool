@@ -44,7 +44,9 @@ private slots:
 
     void on_railDecode_triggered();
 
-    void on_classicalCaesarDecode_triggered();
+    void on_classicalCaesarDecrypt_triggered();
+
+    void on_vigenereDecrypt_triggered();
 
 private:
     Ui::MainWindow *ui;

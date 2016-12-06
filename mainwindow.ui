@@ -149,7 +149,8 @@
      <property name="title">
       <string>凯撒</string>
      </property>
-     <addaction name="classicalCaesarDecode"/>
+     <addaction name="classicalCaesarDecrypt"/>
+     <addaction name="vigenereDecrypt"/>
     </widget>
     <addaction name="railDecode"/>
     <addaction name="separator"/>
@@ -224,9 +225,19 @@
     <string>栅栏</string>
    </property>
   </action>
-  <action name="classicalCaesarDecode">
+  <action name="classicalCaesarDecrypt">
    <property name="text">
     <string>经典凯撒</string>
+   </property>
+  </action>
+  <action name="vigenereDecrypt">
+   <property name="text">
+    <string>维吉尼亚解密</string>
+   </property>
+  </action>
+  <action name="action1">
+   <property name="text">
+    <string>1</string>
    </property>
   </action>
  </widget>
