@@ -215,3 +215,10 @@ void MainWindow::on_vigenereDecrypt_triggered()
     }
     ui->outputEdit->setText(result);
 }
+
+void MainWindow::on_delSpace_triggered()
+{
+    QString input = ui->inputEdit->toPlainText();
+    input.replace(" ","");
+    ui->outputEdit->setText(input);
+}

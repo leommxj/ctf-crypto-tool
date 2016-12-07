@@ -48,6 +48,8 @@ private slots:
 
     void on_vigenereDecrypt_triggered();
 
+    void on_delSpace_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

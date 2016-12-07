@@ -115,6 +115,7 @@
     <addaction name="toUpper"/>
     <addaction name="toLower"/>
     <addaction name="exchangeLowerUpper"/>
+    <addaction name="delSpace"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -238,6 +239,11 @@
   <action name="action1">
    <property name="text">
     <string>1</string>
+   </property>
+  </action>
+  <action name="delSpace">
+   <property name="text">
+    <string>去空格</string>
    </property>
   </action>
  </widget>
