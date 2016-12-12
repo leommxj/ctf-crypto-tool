@@ -94,4 +94,47 @@ QString Tools::caesarDecode(const QString &fuckyou, int n){
     }
     return result;
 }
-
+QString Tools::baconDecodeAB1(const QString &input){
+    QString result;
+    QString temp = input;
+    temp = temp.replace(QRegExp("[Aa]"),"0");
+    temp = temp.replace(QRegExp("[Bb]"),"1");
+    int i=0,s=0;
+    for(int n=0;n<temp.length();n++){
+        if(i>=5){
+            result.append(baconA.at(s));
+            i=0;s=0;
+        }
+        if(temp.at(n)=="1")
+        s+=16>>i;
+        i++;
+    }
+    if(i==5){
+        result.append(baconA.at(s));
+    }
+    return result;
+}
+QString Tools::baconDecodeAB2(const QString &input){
+    QString result;
+    QString temp = input;
+    temp = temp.replace(QRegExp("[Aa]"),"0");
+    temp = temp.replace(QRegExp("[Bb]"),"1");
+    int i=0,s=0;
+    for(int n=0;n<temp.length();n++){
+        if(i>=5){
+            result.append(baconB.at(s));
+            if(s==8)result.append("/J");
+            else if(s==19)result.append("/V");
+            i=0;s=0;
+        }
+        if(temp.at(n)=="1")
+        s+=16>>i;
+        i++;
+    }
+    if(i==5){
+        result.append(baconB.at(s));
+        if(s==8)result.append("/J");
+        else if(s==19)result.append("/V");
+    }
+    return result;
+}

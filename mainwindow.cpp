@@ -222,3 +222,29 @@ void MainWindow::on_delSpace_triggered()
     input.replace(" ","");
     ui->outputEdit->setText(input);
 }
+
+void MainWindow::on_URLencode_triggered()
+{
+    QString input = ui->inputEdit->toPlainText();
+    QString result = input.toUtf8().toPercentEncoding();
+    ui->outputEdit->setText(result);
+}
+
+void MainWindow::on_URLdecode_triggered()
+{
+    QString input = ui->inputEdit->toPlainText();
+    QString result = QByteArray::fromPercentEncoding(input.toUtf8());
+    ui->outputEdit->setText(result);
+}
+
+void MainWindow::on_baconDecodeAB_triggered()
+{
+    QString input = ui->inputEdit->toPlainText();
+    Tools* tools = Tools::GetInstance();
+    QString result;
+    result.append("第一种方式：\n");
+    result.append(tools->baconDecodeAB1(input));
+    result.append("\n第二种方式:\n");
+    result.append(tools->baconDecodeAB2(input));
+    ui->outputEdit->setText(result);
+}

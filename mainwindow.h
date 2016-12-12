@@ -50,6 +50,12 @@ private slots:
 
     void on_delSpace_triggered();
 
+    void on_URLencode_triggered();
+
+    void on_URLdecode_triggered();
+
+    void on_baconDecodeAB_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -139,8 +139,16 @@
      <addaction name="hexEncode"/>
      <addaction name="hexDecode"/>
     </widget>
+    <widget class="QMenu" name="menuURL">
+     <property name="title">
+      <string>URL</string>
+     </property>
+     <addaction name="URLencode"/>
+     <addaction name="URLdecode"/>
+    </widget>
     <addaction name="menuBase16_32_64"/>
     <addaction name="menuHEX_Base16"/>
+    <addaction name="menuURL"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -153,9 +161,15 @@
      <addaction name="classicalCaesarDecrypt"/>
      <addaction name="vigenereDecrypt"/>
     </widget>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>培根</string>
+     </property>
+     <addaction name="baconDecodeAB"/>
+    </widget>
     <addaction name="railDecode"/>
-    <addaction name="separator"/>
     <addaction name="menu_3"/>
+    <addaction name="menu_4"/>
    </widget>
    <addaction name="menuCtf_crypto_tools"/>
    <addaction name="menu"/>
@@ -244,6 +258,21 @@
   <action name="delSpace">
    <property name="text">
     <string>去空格</string>
+   </property>
+  </action>
+  <action name="URLencode">
+   <property name="text">
+    <string>编码</string>
+   </property>
+  </action>
+  <action name="URLdecode">
+   <property name="text">
+    <string>解码</string>
+   </property>
+  </action>
+  <action name="baconDecodeAB">
+   <property name="text">
+    <string>AB形式</string>
    </property>
   </action>
  </widget>
